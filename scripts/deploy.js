@@ -1,16 +1,14 @@
-const { ethers } = require("hardhat");
+const hre = require("hardhat");
 
 async function main() {
-  const [deployer] = await ethers.getSigners();
+  const BananaToken = await hre.ethers.getContractFactory("BananaToken");
+  const bananaToken = await BananaToken.deploy(100000000, 50);
 
-  console.log("Deploying contracts with the account: ", deployer.address);
+  console.log("Deploying");
 
-  console.log("Account balance: ", (await deployer.getBalance()).toString());
+  await bananaToken.deployed();
 
-  const BananaToken = await ethers.getContractFactory("BananaToken");
-  const bananaToken = await BananaToken.deploy(100000000);
-
-  console.log("BananaToken address: ", bananaToken.address);
+  console.log("Banana Token deployed: ", bananaToken.address);
 }
 
 main()
