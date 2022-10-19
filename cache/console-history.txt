@@ -1,0 +1,3 @@
+await contract.destory();
+const contract = await Contract.attach('0xC9c7062F42e3e062109992545f7FcC68565E732C');
+const Contract = await hre.ethers.getContractFactory("BananaToken");

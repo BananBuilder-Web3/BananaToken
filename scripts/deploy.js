@@ -2,7 +2,7 @@ const hre = require("hardhat");
 
 async function main() {
   const BananaToken = await hre.ethers.getContractFactory("BananaToken");
-  const bananaToken = await BananaToken.deploy(100000000, 50);
+  const bananaToken = await BananaToken.deploy(10000000);
 
   console.log("Deploying");
 
